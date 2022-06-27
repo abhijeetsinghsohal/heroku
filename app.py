@@ -10,5 +10,8 @@ def index():
 
 @app.route("/greet", methods=['POST', 'GET'])
 def greeter():
-	flash("Hi " + str(request.form['name_input']) + ", great to see you!")
+	list = []
+	for i in range(10):
+		list.append(request.form['name_input'])
+	flash("Hi " + str('-'.join(list)) + ", great to see you!")
 	return render_template("index.html")
